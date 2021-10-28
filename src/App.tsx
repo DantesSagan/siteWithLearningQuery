@@ -1,14 +1,21 @@
-import { Suspense } from 'react';
+import * as ROUTES from './Components/routes/routes';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Navbar from './Components/Pages/Navbar';
+import Loader from './Components/fallback/loader';
+
 import './App.css';
+
+const MainProps = lazy(() => import('./Components/exportTypes/MainProps'));
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={}>
+      <Navbar />
+      <Suspense fallback={<Loader />}>
         <Switch>
-          <Route path='/' />
-          <Route path='/' />
+          <Route path={ROUTES.Main} component={MainProps} />
+          <Route path={ROUTES.Query} />
           <Route path='/' />
         </Switch>
       </Suspense>
