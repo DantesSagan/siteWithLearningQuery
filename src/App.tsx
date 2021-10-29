@@ -6,7 +6,8 @@ import Loader from './Components/fallback/loader';
 
 import './App.css';
 
-const MainProps = lazy(() => import('./Components/exportTypes/MainProps'));
+
+const MainProps = lazy(() => import('./Components/Pages/Main'));
 
 export default function App() {
   return (
