@@ -4,8 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Pages/Navbar';
 import Loader from './Components/fallback/loader';
 
-import './App.css';
-
+import './styles/App.css';
 
 const MainProps = lazy(() => import('./Components/Pages/Main'));
 
