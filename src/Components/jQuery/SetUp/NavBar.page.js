@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
-import * as ROUTES from '../routes/routes';
+import * as ROUTESINNTER from '../routesInner/routes';
 
-export default function Navbar() {
+export default function NavBarJQuery() {
   return (
-    <header>
-      <nav className='grid grid-cols-3 shadow-inner p-2 m-2 rounded-t-2xl gridCol border-double border-4 border-black'>
+    <header className="mt-48" id="navbar">
+      <nav className='grid grid-cols-1 shadow-inner p-2 m-2 rounded-b-3xl gridCol border-double border-4 border-black'>
         <div
           id='navOne'
           className='col-span-4 button'
           style={{ backgroundColor: 'white', color: 'black' }}
         >
           <div>
-            <Link to={ROUTES.Main}>Home</Link>
+            <Link to={ROUTESINNTER.SetUpMain}>Home(jQuery)</Link>
           </div>
         </div>
 
@@ -23,13 +23,10 @@ export default function Navbar() {
             jQuery
             <div className='dropdown-content'>
               <div className='button'>
-                <Link to={ROUTES.jQuerySetUp}>jQuerySetup</Link>
+                <Link to={ROUTESINNTER.SetUpSuperHeroes}>SuperHeroes</Link>
               </div>
               <div className='button'>
-                <Link to='/'>jQuery</Link>
-              </div>
-              <div className='button'>
-                <Link to='/'>Home2</Link>
+                <Link to={ROUTESINNTER.SetUpRQSuperHeroes}>RQSuperHeroes</Link>
               </div>
             </div>
           </button>{' '}

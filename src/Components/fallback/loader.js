@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Fallback = () => (
   <FallbackContainer>
-    <Loader type='Dots' color='#F8F0FB' height={80} width={80} timeout={3000} />
+    <Loader type='Circles' color='#F8F0FB' height={80} width={80} timeout={3000} />
   </FallbackContainer>
 );
 
@@ -15,6 +15,6 @@ const FallbackContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0.5turn);
-  background: black;
+  background: #fad0c4;
   border-radius: 40px;
 `;

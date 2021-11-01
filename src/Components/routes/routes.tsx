@@ -3,4 +3,4 @@
 // };
 
 export const Main = '/Main';
-export const Query = '/1stLesson';
+export const jQuerySetUp = '/SetUp/Home';
