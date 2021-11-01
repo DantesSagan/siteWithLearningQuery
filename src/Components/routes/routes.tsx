@@ -2,5 +2,5 @@
 //   navString: string;
 // };
 
-export const Main = '/Main';
+export const Main = '/';
 export const jQuerySetUp = '/SetUp/Home';

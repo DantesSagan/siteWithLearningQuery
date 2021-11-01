@@ -67,7 +67,7 @@
   position: fixed;
   display: block;
   min-width: 290px;
-  width: 300px;
+  width: 350px;
   height: auto;
   top: 0;
   left: 0;
@@ -86,6 +86,7 @@
     #fad0c4 100%
   );
 }
+
 .arrowScroll {
   transition: all 0.8s ease-out;
   height: '100px';

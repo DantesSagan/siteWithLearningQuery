@@ -15,9 +15,8 @@ export default function App() {
       <Navbar />
       <Suspense fallback={<Loader />}>
         <Switch>
-          <Route path={ROUTES.Main} component={MainProps} />
+          <Route exact path={ROUTES.Main} component={MainProps} />
           <Route path={ROUTES.jQuerySetUp} component={jQuerySetUp} />
-          <Route path='/' />
         </Switch>
       </Suspense>
     </BrowserRouter>

@@ -10,7 +10,7 @@ const Fallback = () => (
 
 export default Fallback;
 
-const FallbackContainer = styled.div`
+const FallbackContainer = styled.div` 
   position: fixed;
   top: 50%;
   left: 50%;

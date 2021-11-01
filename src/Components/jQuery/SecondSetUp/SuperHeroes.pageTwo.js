@@ -4,7 +4,7 @@ import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function Superheroes() {
+export default function SuperheroesTwo() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const Component = () => {
@@ -17,7 +17,13 @@ import axios from 'axios';
 export default function Superheroes() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
-
+ const Component = () => {
+   return (
+     <SyntaxHighlighter language='javascript' style={dark}>
+       {codeString}
+     </SyntaxHighlighter>
+   );
+ };
   useEffect(() => {
     axios.get('http://localhost:4000/superheroes').then((res) => {
       setData(res.data);
@@ -63,17 +69,9 @@ export default function Superheroes() {
 
   return (
     <div>
-      <h2 className='text-center text-4xl p-4'>SuperHeroesPage</h2>
-      <h4>
-        Serve-json: <br />
-        1) npm install json-server;
-        <br />
-        2) npm install axois; <br />
-        3) Create name.json and add to this json some data <br />
-        4) Create in useEffect or jQuery:
-        axios.get('http://localhost:4000/superheroes').
-        <br /> 5) npm run serve-json on port 4000 or whatever
-      </h4>
+      <h2 className='text-center text-4xl p-4'>
+        SuperHeroesPage(Fetching Data with useQuery)
+      </h2>
       <hr className='border-2 border-red-400' />
       <h2 className='text-center text-3xl p-4'>
         This is example code to explain and show how to work jQuery <br /> to
