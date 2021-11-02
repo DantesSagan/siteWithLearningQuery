@@ -10,8 +10,13 @@ import NavBarJQuery from './NavBar.page';
 
 const HomePage = lazy(() => import('../SetUp/Home.page'));
 const SuperHeroes = lazy(() => import('../SetUp/SuperHeroes.page'));
-const SuperHeroesTwo = lazy(() => import('../SecondSetUp/SuperHeroes.pageTwo'));
 const RQSuperHeroes = lazy(() => import('../SetUp/RQSuperHeroes.page'));
+const HandlingReactError = lazy(() =>
+  import('../SecondSetUp/HandlingReactError.pageThree')
+);
+const HandlingQueryError = lazy(() =>
+  import('../SecondSetUp/HandlingQueryError.pageThree')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -27,12 +32,16 @@ export default function SetUp() {
               component={SuperHeroes}
             />
             <Route
-              path={ROUTESINNTER.SetUpSuperHeroesTwo}
-              component={SuperHeroesTwo}
-            />
-            <Route
               path={ROUTESINNTER.SetUpRQSuperHeroes}
               component={RQSuperHeroes}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpHandlingReactError}
+              component={HandlingReactError}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpHandlingQueryError}
+              component={HandlingQueryError}
             />
           </Switch>
         </Suspense>

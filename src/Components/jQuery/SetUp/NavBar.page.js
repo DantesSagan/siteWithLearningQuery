@@ -33,6 +33,30 @@ export default function NavBarJQuery() {
             </div>
           </button>{' '}
         </div>
+
+        <div
+          className='col-span-4 p-2 rounded-lg'
+          style={{ display: 'inline-block' }}
+        >
+          <button
+            className='buttonM dropdown hover:border-red-600'
+            style={{ display: 'inline-block', backgroundColor: 'white' }}
+          >
+            jQueryErrorsData
+            <div className='dropdown-content'>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpHandlingReactError}>
+                  HandlingReactError
+                </Link>
+              </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpHandlingQueryError}>
+                  HandlingQueryError
+                </Link>
+              </div>
+            </div>
+          </button>{' '}
+        </div>
       </nav>
     </header>
   );
