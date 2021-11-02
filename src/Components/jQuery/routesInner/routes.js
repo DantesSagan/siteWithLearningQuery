@@ -4,3 +4,4 @@ export const SetUpSuperHeroesTwo = '/SetUp/SuperHeroesSetUpTwo';
 export const SetUpRQSuperHeroes = '/SetUp/RQSuperHeroesSetUp';
 export const SetUpHandlingReactError = '/SetUp/SetUpHandlingReactError';
 export const SetUpHandlingQueryError = '/SetUp/SetUpHandlingQueryError';
+export const SetUpjQueryDevTools = '/SetUp/SetUpjQueryDevTools';

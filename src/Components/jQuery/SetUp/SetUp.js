@@ -1,4 +1,5 @@
 import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { Switch, Route } from 'react-router';
 import { Suspense, lazy } from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -17,6 +18,7 @@ const HandlingReactError = lazy(() =>
 const HandlingQueryError = lazy(() =>
   import('../SecondSetUp/HandlingQueryError.pageThree')
 );
+const jQueryDevTools = lazy(() => import('../jQuery/jQueryDevtools.pageFour'));
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -43,8 +45,13 @@ export default function SetUp() {
               path={ROUTESINNTER.SetUpHandlingQueryError}
               component={HandlingQueryError}
             />
+            <Route
+              path={ROUTESINNTER.SetUpjQueryDevTools}
+              component={jQueryDevTools}
+            />
           </Switch>
         </Suspense>
+        <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
       </QueryClientProvider>
     </BrowserRouter>
   );
