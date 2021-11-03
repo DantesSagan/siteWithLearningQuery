@@ -9,10 +9,13 @@ const fetchSuperHeroesQuery = () => {
 };
 
 export default function SetUpjQueryDevTools() {
-  const { isLoading, data, error, isError } = useQuery(
+  const { isLoading, data, error, isError, isFetching } = useQuery(
     'super-heroes',
     fetchSuperHeroesQuery
   );
+
+  console.log({ isLoading, isFetching });
+
   if (isLoading) {
     return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
   }
@@ -88,7 +91,9 @@ export default function SetUp() {
   const ScrollDown = () => {
     window.scrollTo({ top: 800, behavior: 'smooth' });
   };
-
+  const xWidth = () => {
+    window.innerWidth({ screenX: 1200, behavior: 'smooth' });
+  };
   return (
     <>
       <h2 className='text-center text-4xl p-4'>jQueryDevtools</h2>
@@ -118,7 +123,7 @@ export default function SetUp() {
         below how it code works!
       </h2>
       <div className='text-center text-2xl rounded-lg p-8 border-4 border-blue-700 shadow-inner '>
-          There is no corresponding view of work 
+        There is no corresponding view of work
       </div>
       <Component />
     </>

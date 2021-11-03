@@ -1,82 +1,119 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as ROUTESINNTER from '../routesInner/routes';
 
 export default function NavBarJQuery() {
+  useEffect(() => {
+    const btn = document.querySelector('.mobilemenu');
+    const sidebar = document.querySelector('.sidebar');
+
+    btn.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+    });
+  }, []);
   return (
-    <header className='mt-48' id='navbar'>
-      <nav className='grid grid-cols-1 shadow-inner p-2 m-2 rounded-2xl gridCol border-double border-4 border-black'>
-        <div
-          id='navOne'
-          className='col-span-4 button'
-          style={{ backgroundColor: 'white', color: 'black' }}
-        >
-          <div>
-            <Link to={ROUTESINNTER.SetUpMain}>Home(jQuery)</Link>
+    <header className='relative'>
+      <div
+        className='bg-red-300 flex justify-between m-4 md:m-2 md:block rounded-lg xl:hidden'
+        style={{ top: 0, right: 0, position: 'fixed' }}
+      >
+        <span className='block p-4 md:p-2 font-bold'>Little menu</span>
+        <button className='p-4 md:p-2 hover:outline-none hover:bg-red-500 mobilemenu'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-6 w-6'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M4 6h16M4 12h16M4 18h16'
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className='transition duration-200 ease-in-out lg:relative lg:translate-x-0  sidebar m-4 md:m-2'
+        id='navbar'
+      >
+        <nav className='grid grid-cols-1 p-2 m-2 rounded-2xl border-black'>
+          <div
+            id='navOne'
+            className='col-span-4 button'
+            style={{ backgroundColor: 'white', color: 'black' }}
+          >
+            <div>
+              <Link to={ROUTESINNTER.SetUpMain}>Home(jQuery)</Link>
+            </div>
           </div>
-        </div>
 
-        <div className=' p-2 rounded-lg' style={{ display: 'inline-block' }}>
-          <button
-            className='buttonM dropdown hover:border-red-600'
-            style={{ display: 'inline-block', backgroundColor: 'white' }}
-          >
-            jQueryFetchingData
-            <div className='dropdown-content'>
-              <div className='button'>
-                <Link to={ROUTESINNTER.SetUpSuperHeroes}>SuperHeroes</Link>
+          <div className=' p-2 rounded-lg' style={{ display: 'inline-block' }}>
+            <hr className='border-2 border-white mb-4' />
+            <button
+              className='buttonM dropdown hover:border-red-600'
+              style={{ display: 'inline-block', backgroundColor: 'white' }}
+            >
+              jQueryFetching Data
+              <div className='dropdown-content'>
+                <div className='button'>
+                  <Link to={ROUTESINNTER.SetUpSuperHeroes}>SuperHeroes</Link>
+                </div>
+                <div className='button'>
+                  <Link to={ROUTESINNTER.SetUpRQSuperHeroes}>
+                    Fetching Data with useQuery
+                  </Link>
+                </div>
               </div>
-              <div className='button'>
-                <Link to={ROUTESINNTER.SetUpRQSuperHeroes}>
-                  Fetching Data with useQuery
-                </Link>
-              </div>
-            </div>
-          </button>{' '}
-        </div>
+            </button>{' '}
+          </div>
 
-        <div
-          className='col-span-4 p-2 rounded-lg'
-          style={{ display: 'inline-block' }}
-        >
-          <button
-            className='buttonM dropdown hover:border-red-600'
-            style={{ display: 'inline-block', backgroundColor: 'white' }}
+          <div
+            className='col-span-4 p-2 rounded-lg'
+            style={{ display: 'inline-block' }}
           >
-            jQueryErrorsData
-            <div className='dropdown-content'>
-              <div className='button'>
-                <Link to={ROUTESINNTER.SetUpHandlingReactError}>
-                  HandlingReactError
-                </Link>
+            <button
+              className='buttonM dropdown hover:border-red-600'
+              style={{ display: 'inline-block', backgroundColor: 'white' }}
+            >
+              jQueryErrors Data
+              <div className='dropdown-content'>
+                <div className='button'>
+                  <Link to={ROUTESINNTER.SetUpHandlingReactError}>
+                    HandlingReactError
+                  </Link>
+                </div>
+                <div className='button'>
+                  <Link to={ROUTESINNTER.SetUpHandlingQueryError}>
+                    HandlingQueryError
+                  </Link>
+                </div>
               </div>
-              <div className='button'>
-                <Link to={ROUTESINNTER.SetUpHandlingQueryError}>
-                  HandlingQueryError
-                </Link>
-              </div>
-            </div>
-          </button>{' '}
-        </div>
+            </button>{' '}
+          </div>
 
-        <div
-          className='col-span-4 p-2 rounded-lg'
-          style={{ display: 'inline-block' }}
-        >
-          <button
-            className='buttonM dropdown hover:border-red-600'
-            style={{ display: 'inline-block', backgroundColor: 'white' }}
+          <div
+            className='col-span-4 p-2 rounded-lg'
+            style={{ display: 'inline-block' }}
           >
-            jQueryDevTools
-            <div className='dropdown-content'>
-              <div className='button'>
-                <Link to={ROUTESINNTER.SetUpjQueryDevTools}>
-                  SetUpjQueryDevTools
-                </Link>
+            <button
+              className='buttonM dropdown hover:border-red-600'
+              style={{ display: 'inline-block', backgroundColor: 'white' }}
+            >
+              jQueryDevTools
+              <div className='dropdown-content'>
+                <div className='button'>
+                  <Link to={ROUTESINNTER.SetUpjQueryDevTools}>
+                    SetUpjQueryDevTools
+                  </Link>
+                </div>
               </div>
-            </div>
-          </button>{' '}
-        </div>
-      </nav>
+            </button>{' '}
+          </div>
+        </nav>
+      </div>
     </header>
   );
 }

@@ -68,9 +68,10 @@
   display: block;
   min-width: 290px;
   width: 350px;
-  height: auto;
+  height: 100%;
   top: 0;
   left: 0;
+  border-radius: 25px;
   border: solid;
   border-bottom: 2px solid tomato;
   border-color: tomato;
@@ -96,7 +97,6 @@
   position: 'fixed';
   right: '100px';
   bottom: '100px';
-  fill: ;
 }
 
 /* @MEDIA */
@@ -104,15 +104,88 @@
   .gridCol {
     font-size: 1.25em;
   }
+  #navbar {
+    position: fixed;
+    display: block;
+    min-width: 290px;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: solid;
+    border-bottom: 2px solid tomato;
+    border-color: tomato;
+    background: linear-gradient(90deg, #fd8a8a 0, #99a6fa 56%);
+  }
 }
 @media only screen and (max-width: 1600px) {
   .gridCol {
     font-size: 1.25em;
   }
+  #navbar {
+    position: fixed;
+    display: block;
+    min-width: 280px;
+    width: 290px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: solid;
+    border-bottom: 2px solid tomato;
+    border-color: tomato;
+    background: linear-gradient(90deg, #fd8a8a 0, #99a6fa 56%);
+  }
 }
 @media only screen and (max-width: 1500px) {
   .gridCol {
-    font-size: 1.25em;
+    font-size: 1.15em;
+  }
+  #navbar {
+    position: fixed;
+    display: block;
+    min-width: 220px;
+    width: 240px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: solid;
+    border-bottom: 2px solid tomato;
+    border-color: tomato;
+    background: linear-gradient(90deg, #fd8a8a 0, #99a6fa 56%);
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .gridCol {
+    font-size: 1.05em;
+  }
+  .navbar {
+    position: fixed;
+    display: block;
+    min-width: 220px;
+    width: 200px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: solid;
+    border-bottom: 2px solid tomato;
+    border-color: tomato;
+    background: linear-gradient(90deg, #fd8a8a 0, #99a6fa 56%);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .gridCol {
+    font-size: 1em;
+  }
+  .navbar {
+    position: fixed;
+    display: block;
+    width: 150px;
+    height: 100%;
+    left: 0;
+    border: solid;
+    border-bottom: 2px solid tomato;
+    border-color: tomato;
+    background: linear-gradient(90deg, #fd8a8a 0, #99a6fa 56%);
   }
 }
 

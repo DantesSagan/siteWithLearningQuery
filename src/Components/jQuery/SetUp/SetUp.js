@@ -8,6 +8,7 @@ import * as ROUTESINNTER from '../routesInner/routes';
 
 import Loader from '../../fallback/loader';
 import NavBarJQuery from './NavBar.page';
+import ScrollToTop from '../../fallback/scrollTop';
 
 const HomePage = lazy(() => import('../SetUp/Home.page'));
 const SuperHeroes = lazy(() => import('../SetUp/SuperHeroes.page'));
@@ -52,6 +53,7 @@ export default function SetUp() {
           </Switch>
         </Suspense>
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+        <ScrollToTop />
       </QueryClientProvider>
     </BrowserRouter>
   );
