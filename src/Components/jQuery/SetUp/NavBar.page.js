@@ -12,12 +12,15 @@ export default function NavBarJQuery() {
     });
   }, []);
   return (
-    <header className='relative'>
+    <header className='relative md:flex'>
       <div
         className='bg-red-300 flex justify-between m-4 md:m-2 md:block rounded-lg xl:hidden'
         style={{ top: 0, right: 0, position: 'fixed' }}
       >
-        <span className='block p-4 md:p-2 font-bold'>Little menu</span>
+        <span className='block p-4 md:p-2 font-bold'>
+          Menu for <br />
+          sidebar
+        </span>
         <button className='p-4 md:p-2 hover:outline-none hover:bg-red-500 mobilemenu'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -36,83 +39,81 @@ export default function NavBarJQuery() {
         </button>
       </div>
       <div
-        className='transition duration-200 ease-in-out lg:relative lg:translate-x-0  sidebar m-4 md:m-2'
+        className=' transform -translate-x-full transition duration-200 ease-in-out xl:relative xl:translate-x-0  sidebar m-4 xl:m-2 absolute grid grid-cols-1 p-2 m-2 rounded-2xl border-black xl:hidden'
         id='navbar'
       >
-        <nav className='grid grid-cols-1 p-2 m-2 rounded-2xl border-black'>
-          <div
-            id='navOne'
-            className='col-span-4 button'
-            style={{ backgroundColor: 'white', color: 'black' }}
+        <div
+          id='navOne'
+          className='col-span-4 button'
+          style={{ backgroundColor: 'white', color: 'black' }}
+        >
+          <div>
+            <Link to={ROUTESINNTER.SetUpMain}>Home(jQuery)</Link>
+          </div>
+        </div>
+
+        <div className=' p-2 rounded-lg' style={{ display: 'inline-block' }}>
+          <hr className='border-2 border-white mb-4' />
+          <button
+            className='buttonM dropdown hover:border-red-600'
+            style={{ display: 'inline-block', backgroundColor: 'white' }}
           >
-            <div>
-              <Link to={ROUTESINNTER.SetUpMain}>Home(jQuery)</Link>
+            jQueryFetching Data
+            <div className='dropdown-content'>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpSuperHeroes}>SuperHeroes</Link>
+              </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpRQSuperHeroes}>
+                  Fetching Data with useQuery
+                </Link>
+              </div>
             </div>
-          </div>
+          </button>{' '}
+        </div>
 
-          <div className=' p-2 rounded-lg' style={{ display: 'inline-block' }}>
-            <hr className='border-2 border-white mb-4' />
-            <button
-              className='buttonM dropdown hover:border-red-600'
-              style={{ display: 'inline-block', backgroundColor: 'white' }}
-            >
-              jQueryFetching Data
-              <div className='dropdown-content'>
-                <div className='button'>
-                  <Link to={ROUTESINNTER.SetUpSuperHeroes}>SuperHeroes</Link>
-                </div>
-                <div className='button'>
-                  <Link to={ROUTESINNTER.SetUpRQSuperHeroes}>
-                    Fetching Data with useQuery
-                  </Link>
-                </div>
-              </div>
-            </button>{' '}
-          </div>
-
-          <div
-            className='col-span-4 p-2 rounded-lg'
-            style={{ display: 'inline-block' }}
+        <div
+          className='col-span-4 p-2 rounded-lg'
+          style={{ display: 'inline-block' }}
+        >
+          <button
+            className='buttonM dropdown hover:border-red-600'
+            style={{ display: 'inline-block', backgroundColor: 'white' }}
           >
-            <button
-              className='buttonM dropdown hover:border-red-600'
-              style={{ display: 'inline-block', backgroundColor: 'white' }}
-            >
-              jQueryErrors Data
-              <div className='dropdown-content'>
-                <div className='button'>
-                  <Link to={ROUTESINNTER.SetUpHandlingReactError}>
-                    HandlingReactError
-                  </Link>
-                </div>
-                <div className='button'>
-                  <Link to={ROUTESINNTER.SetUpHandlingQueryError}>
-                    HandlingQueryError
-                  </Link>
-                </div>
+            jQueryErrors Data
+            <div className='dropdown-content'>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpHandlingReactError}>
+                  HandlingReactError
+                </Link>
               </div>
-            </button>{' '}
-          </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpHandlingQueryError}>
+                  HandlingQueryError
+                </Link>
+              </div>
+            </div>
+          </button>{' '}
+        </div>
 
-          <div
-            className='col-span-4 p-2 rounded-lg'
-            style={{ display: 'inline-block' }}
+        <div
+          className='col-span-4 p-2 rounded-lg'
+          style={{ display: 'inline-block' }}
+        >
+          <button
+            className='buttonM dropdown hover:border-red-600'
+            style={{ display: 'inline-block', backgroundColor: 'white' }}
           >
-            <button
-              className='buttonM dropdown hover:border-red-600'
-              style={{ display: 'inline-block', backgroundColor: 'white' }}
-            >
-              jQueryDevTools
-              <div className='dropdown-content'>
-                <div className='button'>
-                  <Link to={ROUTESINNTER.SetUpjQueryDevTools}>
-                    SetUpjQueryDevTools
-                  </Link>
-                </div>
+            jQueryDevTools
+            <div className='dropdown-content'>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpjQueryDevTools}>
+                  SetUpjQueryDevTools
+                </Link>
               </div>
-            </button>{' '}
-          </div>
-        </nav>
+            </div>
+          </button>{' '}
+        </div>
       </div>
     </header>
   );

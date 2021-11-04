@@ -11,14 +11,16 @@ const jQuerySetUp = lazy(() => import('./Components/jQuery/SetUp/SetUp'));
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Suspense fallback={<Loader />}>
-        <Switch>
-          <Route exact path={ROUTES.Main} component={MainProps} />
-          <Route path={ROUTES.jQuerySetUp} component={jQuerySetUp} />
-        </Switch>
-      </Suspense>
-    </BrowserRouter>
+    <div className='text-center'>
+      <BrowserRouter>
+        <Navbar />
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <Route exact path={ROUTES.Main} component={MainProps} />
+            <Route path={ROUTES.jQuerySetUp} component={jQuerySetUp} />
+          </Switch>
+        </Suspense>
+      </BrowserRouter>
+    </div>
   );
 }

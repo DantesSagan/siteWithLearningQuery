@@ -91,9 +91,9 @@ export default function SetUp() {
   const ScrollDown = () => {
     window.scrollTo({ top: 800, behavior: 'smooth' });
   };
-  const xWidth = () => {
-    window.innerWidth({ screenX: 1200, behavior: 'smooth' });
-  };
+  // const xWidth = () => {
+  //   window.innerWidth({ screenX: 1200, behavior: 'smooth' });
+  // };
   return (
     <>
       <h2 className='text-center text-4xl p-4'>jQueryDevtools</h2>
