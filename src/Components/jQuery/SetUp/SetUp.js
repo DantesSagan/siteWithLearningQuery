@@ -20,6 +20,9 @@ const HandlingQueryError = lazy(() =>
   import('../SecondSetUp/HandlingQueryError.pageThree')
 );
 const jQueryDevTools = lazy(() => import('../jQuery/jQueryDevtools.pageFour'));
+const jQueryRefetchDefautls = lazy(() =>
+  import('../jQuery/jQueryRefetchDefautls.pageFive')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -49,6 +52,10 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetUpjQueryDevTools}
               component={jQueryDevTools}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpjQueryRefetchDefaults}
+              component={jQueryRefetchDefautls}
             />
           </Switch>
         </Suspense>

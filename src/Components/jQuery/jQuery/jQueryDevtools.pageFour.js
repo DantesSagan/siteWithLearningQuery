@@ -9,9 +9,10 @@ const fetchSuperHeroesQuery = () => {
 };
 
 export default function SetUpjQueryDevTools() {
-  const { isLoading, data, error, isError, isFetching } = useQuery(
+  const { isLoading, error, isError, isFetching } = useQuery(
     'super-heroes',
-    fetchSuperHeroesQuery
+    fetchSuperHeroesQuery,
+    { staleTime: 0, refetchOnMount: false, refetchOnWindowFocus: false }
   );
 
   console.log({ isLoading, isFetching });

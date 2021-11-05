@@ -111,6 +111,12 @@ export default function NavBarJQuery() {
                   SetUpjQueryDevTools
                 </Link>
               </div>
+
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpjQueryRefetchDefaults}>
+                  SetUpjQueryRefetchDefaults
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>

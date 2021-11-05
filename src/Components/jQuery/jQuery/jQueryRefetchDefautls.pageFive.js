@@ -5,19 +5,21 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 
 const fetchSuperHeroesQuery = () => {
-  // if change this url link to
-  // http://localhost:4000/superheroes1 or
-  // http://localhost:4000/sup
-  // What broke url link and the page response with following message like this:
-  // "Request failed with status code 404"
-  // Until the URL link will be fixed
   return axios.get('http://localhost:4000/superheroes');
 };
 
-export default function HandlingQueryError() {
+export default function RefrechDefaults() {
   const { isLoading, data, error, isError } = useQuery(
     'super-heroes',
     fetchSuperHeroesQuery,
+    // In this lessons we are learn about hot to work refetchOnMout and refetchOnWindowFocus
+    // Where refetchOnMoutn work like when you fetch data this commands will refetch data instantly
+    // on boolean expression: true, and not refetch data when boolean expression set's on:false
+    // refetchOnWindowFocus - this is important than refetchOnMount
+    // When you tab any time loses focus and gains focus again background refetch will initiated
+    // When the refetch completed UI is updated with date retrieved
+    // And you can set it to false where you UI not refetch on window focus
+    // Or you can set it to "always" irrespective of whether the query data is stale or not (независимо устарели ли данные запросы или нет)
     { staleTime: 0, refetchOnMount: true, refetchOnWindowFocus: 'always' }
   );
   if (isLoading) {
@@ -28,10 +30,6 @@ export default function HandlingQueryError() {
   }
   const Component = () => {
     const codeString = `
-// In this example we are learning how to fetch data with jQuery
-// What can be used for more simplified than instead React hooks
-// Whitch is more simple 
-// And additionaly we create error message in jQuery what can sent Error message if something goes wrong
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
@@ -74,14 +72,13 @@ export default function RQSuperHeroes() {
 
   return (
     <>
-      <h2 className='text-center text-4xl p-4'>HandlingQueryError</h2>
+      <h2 className='text-center text-4xl p-4'>jQueryRefetchDefaults</h2>
       <hr className='border-2 border-red-400' />
       <h2 className='text-center text-3xl p-4'>
         This is example code to explain and show how to work jQuery <br /> to
-        fetch data with axios and Query!
+        refetchOnMout && refetchOnWindowFocus!
         <br />
-        Thits is example to improve how to work Errors if smth goes wrong! With
-        jQuery!
+        Thits is example to improve how to work refetch data ! With jQuery!
       </h2>
       <hr className='border-2 border-red-400' />
       <h2 className='text-center text-3xl p-4'>
@@ -100,7 +97,7 @@ export default function RQSuperHeroes() {
         below how it code works!
       </h2>
       <div className='text-center text-2xl rounded-lg p-8 border-4 border-blue-700 shadow-inner '>
-        <h2 className='text-center text-4xl p-4'>HandlingQueryError</h2>
+        <h2 className='text-center text-4xl p-4'>jQueryRefetchDefaults</h2>
         {data?.data.map((hero) => {
           return <div key={hero.name}>{hero.name}</div>;
         })}
