@@ -8,19 +8,11 @@ const fetchSuperHeroesQuery = () => {
   return axios.get('http://localhost:4000/superheroes');
 };
 
-export default function RefrechDefaults() {
+export default function IntervalRefetch() {
   const { isLoading, data, error, isError } = useQuery(
     'super-heroes',
     fetchSuperHeroesQuery,
-    // In this lessons we are learn about hot to work refetchOnMout and refetchOnWindowFocus
-    // Where refetchOnMoutn work like when you fetch data this commands will refetch data instantly
-    // on boolean expression: true, and not refetch data when boolean expression set's on:false
-    // refetchOnWindowFocus - this is important than refetchOnMount
-    // When you tab any time loses focus and gains focus again background refetch will initiated
-    // When the refetch completed UI is updated with date retrieved
-    // And you can set it to false where you UI not refetch on window focus
-    // Or you can set it to "always" irrespective of whether the query data is stale or not (независимо устарели ли данные запросы или нет)
-    { staleTime: 0, refetchOnMount: true, refetchOnWindowFocus: 'always' }
+    { refetchInterval: 4000, refetchIntervalInBackground: true }
   );
   if (isLoading) {
     return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
@@ -30,6 +22,10 @@ export default function RefrechDefaults() {
   }
   const Component = () => {
     const codeString = `
+// In this case we are using refetchInterval 
+// For example i cantype 2000 ms and jQuery automatically refetch every 2 seconds 
+// And additionally we can use refetchIntervalInBackground and set it to: true
+// And It's settings can continue to pull data even the browser it's not the focus on tab/window 
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
@@ -37,19 +33,11 @@ const fetchSuperHeroesQuery = () => {
   return axios.get('http://localhost:4000/superheroes');
 };
 
-export default function RQSuperHeroes() {
-    const { isLoading, data, error, isError } = useQuery(
+export default function IntervalRefetch() {
+  const { isLoading, data, error, isError } = useQuery(
     'super-heroes',
     fetchSuperHeroesQuery,
-    // In this lessons we are learn about hot to work refetchOnMout and refetchOnWindowFocus
-    // Where refetchOnMoutn work like when you fetch data this commands will refetch data instantly
-    // on boolean expression: true, and not refetch data when boolean expression set's on:false
-    // refetchOnWindowFocus - this is important than refetchOnMount
-    // When you tab any time loses focus and gains focus again background refetch will initiated
-    // When the refetch completed UI is updated with date retrieved
-    // And you can set it to false where you UI not refetch on window focus
-    // Or you can set it to "always" irrespective of whether the query data is stale or not (независимо устарели ли данные запросы или нет)
-    { staleTime: 0, refetchOnMount: true, refetchOnWindowFocus: 'always' }
+    { refetchInterval: 4000, refetchIntervalInBackground: true }
   );
   if (isLoading) {
     return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
@@ -59,7 +47,7 @@ export default function RQSuperHeroes() {
   }
   return (
     <>
-        <h2 className='text-center text-4xl p-4'>RefetchDefaults</h2>
+        <h2 className='text-center text-4xl p-4'>HandlingQueryError</h2>
         {data?.data.map((hero) => {
           return <div key={hero.name}>{hero.name}</div>;
         })}
@@ -81,13 +69,15 @@ export default function RQSuperHeroes() {
 
   return (
     <>
-      <h2 className='text-center text-4xl p-4'>jQueryRefetchDefaults</h2>
+      <h2 className='text-center text-4xl p-4'>IntervalRefetch</h2>
       <hr className='border-2 border-red-400' />
       <h2 className='text-center text-3xl p-4'>
         This is example code to explain and show how to work jQuery <br /> to
-        refetchOnMout && refetchOnWindowFocus!
+        refetch data even the pull data by interval and refetchInterval by
+        background with axios and Query!
         <br />
-        Thits is example to improve how to work refetch data ! With jQuery!
+        Thits is example to improve how to work Errors if smth goes wrong! With
+        jQuery!
       </h2>
       <hr className='border-2 border-red-400' />
       <h2 className='text-center text-3xl p-4'>
@@ -106,7 +96,7 @@ export default function RQSuperHeroes() {
         below how it code works!
       </h2>
       <div className='text-center text-2xl rounded-lg p-8 border-4 border-blue-700 shadow-inner '>
-        <h2 className='text-center text-4xl p-4'>jQueryRefetchDefaults</h2>
+        <h2 className='text-center text-4xl p-4'>IntervalRefetch</h2>
         {data?.data.map((hero) => {
           return <div key={hero.name}>{hero.name}</div>;
         })}

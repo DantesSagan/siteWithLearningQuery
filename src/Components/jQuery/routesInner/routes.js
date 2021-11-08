@@ -6,3 +6,4 @@ export const SetUpHandlingReactError = '/SetUp/SetUpHandlingReactError';
 export const SetUpHandlingQueryError = '/SetUp/SetUpHandlingQueryError';
 export const SetUpjQueryDevTools = '/SetUp/SetUpjQueryDevTools';
 export const SetUpjQueryRefetchDefaults = '/SetUp/SetUpjQueryRefetchDefaults';
+export const SetUpjQueryIntervalRefetch = '/SetUp/SetUpjQueryIntervalRefetch';

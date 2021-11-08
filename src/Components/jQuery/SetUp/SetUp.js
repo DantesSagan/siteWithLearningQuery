@@ -23,6 +23,9 @@ const jQueryDevTools = lazy(() => import('../jQuery/jQueryDevtools.pageFour'));
 const jQueryRefetchDefautls = lazy(() =>
   import('../jQuery/jQueryRefetchDefautls.pageFive')
 );
+const jQueryIntervalRefetch = lazy(() =>
+  import('../jQuery/jQueryIntervalRefetch.pageSix')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -56,6 +59,10 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetUpjQueryRefetchDefaults}
               component={jQueryRefetchDefautls}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpjQueryIntervalRefetch}
+              component={jQueryIntervalRefetch}
             />
           </Switch>
         </Suspense>

@@ -117,6 +117,12 @@ export default function NavBarJQuery() {
                   SetUpjQueryRefetchDefaults
                 </Link>
               </div>
+
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpjQueryIntervalRefetch}>
+                  SetUpjQueryIntervalRefetch
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>
