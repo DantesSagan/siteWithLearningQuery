@@ -14,10 +14,20 @@ const fetchSuperHeroesQuery = () => {
 
 export default function QueryErrorCallback() {
   const onSuccess = (data) => {
-    if (data.data.map((item) => item.id) <= 4) {
-      console.log('Perfom side effect after data fetching', data);
-    } else {
-      cancelTokenSource.cancel();
+    console.log(
+      'Countring for loop before 4, cancel',
+      data.data.map((item) => item.id)
+    );
+    for (let i = 0; i < data.data.id; i++) {
+      if (data.data.map((item) => item.id[i]) === 4) {
+        console.log('Perfom side effect after data fetching', data);
+      } else {
+        cancelTokenSource.cancel();
+        console.log(
+          'Countring for loop before 4, cancel',
+          data.data.map((item) => item.id)
+        );
+      }
     }
   };
 
