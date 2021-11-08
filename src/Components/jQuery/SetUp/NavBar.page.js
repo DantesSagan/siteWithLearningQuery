@@ -129,6 +129,12 @@ export default function NavBarJQuery() {
                   SetUpjQueryOnClick
                 </Link>
               </div>
+
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpjQueryOnSuccessOnError}>
+                  SetUpjQueryOnSuccessOnError
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>

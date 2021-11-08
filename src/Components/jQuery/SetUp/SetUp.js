@@ -27,6 +27,9 @@ const jQueryIntervalRefetch = lazy(() =>
   import('../jQuery/jQueryIntervalRefetch.pageSix')
 );
 const jQueryOnClick = lazy(() => import('../jQuery/jQueryOnClick.pageSeven'));
+const SetUpjQueryOnSuccessOnError = lazy(() =>
+  import('../jQuery/jQueryErrorCallback.pageEight')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -68,6 +71,10 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetUpjQueryOnClick}
               component={jQueryOnClick}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpjQueryOnSuccessOnError}
+              component={SetUpjQueryOnSuccessOnError}
             />
           </Switch>
         </Suspense>

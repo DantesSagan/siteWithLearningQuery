@@ -8,3 +8,4 @@ export const SetUpjQueryDevTools = '/SetUp/SetUpjQueryDevTools';
 export const SetUpjQueryRefetchDefaults = '/SetUp/SetUpjQueryRefetchDefaults';
 export const SetUpjQueryIntervalRefetch = '/SetUp/SetUpjQueryIntervalRefetch';
 export const SetUpjQueryOnClick = '/SetUp/SetUpjQueryOnClick';
+export const SetUpjQueryOnSuccessOnError = '/SetUp/SetUpjQueryOnSuccessOnError';
