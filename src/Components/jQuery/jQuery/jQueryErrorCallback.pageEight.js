@@ -1,16 +1,10 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { useQuery } from 'react-query';
 import axios from 'axios';
+import { SuperHeroesData } from '../../hooks/SuperHeroesData';
 
 const cancelTokenSource = axios.CancelToken.source();
-
-const fetchSuperHeroesQuery = () => {
-  return axios.get('http://localhost:4000/superheroes', {
-    cancelToken: cancelTokenSource.token,
-  });
-};
 
 export default function QueryErrorCallback() {
   const onSuccess = (data) => {
@@ -45,7 +39,7 @@ export default function QueryErrorCallback() {
     );
   };
 
-  const { isLoading, data, error, isError, refetch, isFetching } = useQuery(
+  const { isLoading, data, error, isError, refetch, isFetching } =
     // In this case we are using onSuccess and onError
     // Which onSucces could uses for success data when it fetched with according message and side effect
     // Another implementing error - onError could uses for error data when it was fetched with some errors on typing URL and other problem and log in console
@@ -56,17 +50,7 @@ export default function QueryErrorCallback() {
     // Add one more superheroes in json
     // Within onSuccess callback check in the numbers of heroes === 4
     // And stop the pulling onSucces if it's true and when onErroe if it's true onError
-    'super-heroes',
-    fetchSuperHeroesQuery,
-    {
-      onSuccess,
-      onError,
-      refetchInterval: 3000,
-      select: (data) => {
-        return data.data.map((item) => item.name);
-      },
-    }
-  );
+    SuperHeroesData(onSuccess, onError);
   if (isLoading || isFetching) {
     return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
   }
