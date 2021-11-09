@@ -14,21 +14,28 @@ const fetchSuperHeroesQuery = () => {
 
 export default function QueryErrorCallback() {
   const onSuccess = (data) => {
-    console.log(
-      'Countring for loop before 4, cancel',
-      data.data.map((item) => item.id)
-    );
-    for (let i = 0; i < data.data.id; i++) {
-      if (data.data.map((item) => item.id[i]) === 4) {
+    for (
+      let i = 0;
+      i <
+      ((data) => {
+        return data.data.map((item) => item.id);
+      });
+      i++
+    ) {
+      if (
+        data.data.map((item) => item.id[i]) >=
+        data.data.map((item) => item.id[4])
+      ) {
         console.log('Perfom side effect after data fetching', data);
       } else {
         cancelTokenSource.cancel();
         console.log(
-          'Countring for loop before 4, cancel',
+          'Count for loop before 4, cancel',
           data.data.map((item) => item.id)
         );
       }
     }
+    console.log('Count for loop before 4, cancel', data);
   };
 
   const onError = (error) => {
@@ -51,7 +58,14 @@ export default function QueryErrorCallback() {
     // And stop the pulling onSucces if it's true and when onErroe if it's true onError
     'super-heroes',
     fetchSuperHeroesQuery,
-    { onSuccess, onError, refetchInterval: 3000 }
+    {
+      onSuccess,
+      onError,
+      refetchInterval: 3000,
+      select: (data) => {
+        return data.data.map((item) => item.name);
+      },
+    }
   );
   if (isLoading || isFetching) {
     return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
@@ -142,8 +156,11 @@ export default function QueryErrorCallback() {
         >
           RefetchData
         </button>
-        {data?.data.map((hero) => {
+        {/* {data?.data.map((hero) => {
           return <div key={hero.name}>{hero.name}</div>;
+        })} */}
+        {data.map((heroName) => {
+          return <div key={heroName}>{heroName}</div>;
         })}
       </div>
       <Component />
