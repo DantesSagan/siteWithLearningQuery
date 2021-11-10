@@ -135,6 +135,14 @@ export default function NavBarJQuery() {
                   SetUpjQueryOnSuccessOnError
                 </Link>
               </div>
+
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetRQSuperHeroesTwo}>
+                  SetRQSuperHeroesTwo
+                </Link>
+              </div>
+
+              
             </div>
           </button>{' '}
         </div>

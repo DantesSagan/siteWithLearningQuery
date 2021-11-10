@@ -30,6 +30,8 @@ const jQueryOnClick = lazy(() => import('../jQuery/jQueryOnClick.pageSeven'));
 const SetUpjQueryOnSuccessOnError = lazy(() =>
   import('../jQuery/jQueryErrorCallback.pageEight')
 );
+const RQSuperHeroesTwo = lazy(() => import('../SetUp/RQSuperHeroes.pageTwo'));
+const RQSuperHeroesId = lazy(() => import('../jQuery/RQSuperHeroes'));
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -75,6 +77,14 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetUpjQueryOnSuccessOnError}
               component={SetUpjQueryOnSuccessOnError}
+            />
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesTwo}
+              component={RQSuperHeroesTwo}
+            />
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesTwoid}
+              component={RQSuperHeroesId}
             />
           </Switch>
         </Suspense>
