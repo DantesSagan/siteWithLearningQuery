@@ -15,24 +15,10 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className=' p-2 rounded-lg' style={{ display: 'inline-block' }}>
-          <button
-            className='buttonM dropdown hover:border-red-600'
-            style={{ display: 'inline-block', backgroundColor: 'white' }}
-          >
-            jQuery
-            <div className='dropdown-content'>
-              <div className='button'>
-                <Link to={ROUTES.jQuerySetUp}>jQuerySetup</Link>
-              </div>
-              <div className='button'>
-                <Link to='/'>jQuery</Link>
-              </div>
-              <div className='button'>
-                <Link to='/'>Home2</Link>
-              </div>
-            </div>
-          </button>{' '}
+        <div className='p-2 rounded-lg'>
+          <div className='button bg-white text-black'>
+            <Link to={ROUTES.jQuerySetUp}>jQuerySetup</Link>
+          </div>
         </div>
       </nav>
     </header>
