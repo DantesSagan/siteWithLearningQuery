@@ -32,6 +32,9 @@ const SetUpjQueryOnSuccessOnError = lazy(() =>
 );
 const RQSuperHeroesTwo = lazy(() => import('../SetUp/RQSuperHeroes.pageTwo'));
 const RQSuperHeroesId = lazy(() => import('../jQuery/RQSuperHeroes'));
+const ParallelQueries = lazy(() =>
+  import('../jQuery/ParallelQueries.pageNine')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -85,6 +88,10 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetRQSuperHeroesTwoid}
               component={RQSuperHeroesId}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpParallelQueries}
+              component={ParallelQueries}
             />
           </Switch>
         </Suspense>

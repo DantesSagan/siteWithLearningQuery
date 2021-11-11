@@ -24,15 +24,15 @@ export default function NavBarJQuery() {
         <button className='p-4 md:p-2 hover:outline-none hover:bg-red-500 mobilemenu'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            class='h-6 w-6'
+            className='h-6 w-6'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
           >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
               d='M4 6h16M4 12h16M4 18h16'
             />
           </svg>
@@ -141,8 +141,25 @@ export default function NavBarJQuery() {
                   SetRQSuperHeroesTwo
                 </Link>
               </div>
+            </div>
+          </button>{' '}
+        </div>
 
-              
+        <div
+          className='col-span-4 p-2 rounded-lg'
+          style={{ display: 'inline-block' }}
+        >
+          <button
+            className='buttonM dropdown hover:border-red-600'
+            style={{ display: 'inline-block', backgroundColor: 'white' }}
+          >
+            jQueryParallelQueries
+            <div className='dropdown-content'>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpParallelQueries}>
+                  ParallelQueries
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>

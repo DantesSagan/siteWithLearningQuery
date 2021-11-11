@@ -67,17 +67,47 @@ const fetchSuperHeroesQuery = () => {
 };
 
 export default function QueryErrorCallback() {
-    const { isLoading, data, error, isError, refetch, isFetching } = useQuery(
-    'super-heroes',
-    fetchSuperHeroesQuery,
-    { enabled: false }
-  );
-  if (isLoading) {
+    const onSuccess = (data) => {
+    for (
+      let i = 0;
+      i <
+      ((data) => {
+        return data.data.map((item) => item.id);
+      });
+      i++
+    ) {
+      if (
+        data.data.map((item) => item.id[i]) >=
+        data.data.map((item) => item.id[4])
+      ) {
+        console.log('Perfom side effect after data fetching', data);
+      } else {
+        cancelTokenSource.cancel();
+        console.log(
+          'Count for loop before 4, cancel',
+          data.data.map((item) => item.id)
+        );
+      }
+    }
+    console.log('Count for loop before 4, cancel', data);
+  };
+
+  const onError = (error) => {
+    console.log(
+      'Perfom side effect after after encountering error fetching',
+      error
+    );
+  };
+
+  const { isLoading, data, error, isError, refetch, isFetching } =
+  SuperHeroesData(onSuccess, onError);
+  if (isLoading || isFetching) {
     return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
   }
   if (isError) {
     return <h2 className='text-center text-4xl p-4'>{error.message}</h2>;
   }
+
   return (
     <>
         <h2 className='text-center text-4xl p-4'>jQueryOnClick</h2>
@@ -87,8 +117,8 @@ export default function QueryErrorCallback() {
         >
           RefetchData
         </button>
-        {data?.data.map((hero) => {
-          return <div key={hero.name}>{hero.name}</div>;
+        {data.map((heroName) => {
+          return <div key={heroName}>{heroName}</div>;
         })}
     </>
   );
