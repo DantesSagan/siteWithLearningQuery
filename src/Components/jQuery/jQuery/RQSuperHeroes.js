@@ -1,24 +1,14 @@
-import { Suspense } from 'react';
 import { useParams } from 'react-router';
 import useSuperHeroData from '../../hooks/useSuperHeroData';
-import Loader from '../../fallback/loader';
 
 export default function RQSuperHeroesId() {
   const { heroId } = useParams();
   const { isLoading, data, isError, error } = useSuperHeroData(heroId);
   if (isLoading) {
-    return (
-      <Suspense fallback={<Loader />}>
-        <h2 className='text-center text-4xl p-4'>Loading...</h2>
-      </Suspense>
-    );
+    return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
   }
   if (isError) {
-    return (
-      <Suspense fallback={<Loader />}>
-        <h2 className='text-center text-4xl p-4'>{error.message}</h2>;
-      </Suspense>
-    );
+    return <h2 className='text-center text-4xl p-4'>{error.message}</h2>;
   }
   return (
     <div>
