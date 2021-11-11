@@ -141,8 +141,6 @@ export default function NavBarJQuery() {
                   SetRQSuperHeroesTwo
                 </Link>
               </div>
-
-              
             </div>
           </button>{' '}
         </div>

@@ -9,5 +9,5 @@ export const SetUpjQueryRefetchDefaults = '/SetUp/SetUpjQueryRefetchDefaults';
 export const SetUpjQueryIntervalRefetch = '/SetUp/SetUpjQueryIntervalRefetch';
 export const SetUpjQueryOnClick = '/SetUp/SetUpjQueryOnClick';
 export const SetUpjQueryOnSuccessOnError = '/SetUp/SetUpjQueryOnSuccessOnError';
-export const SetRQSuperHeroesTwo = '/rq-super-heroes';
+export const SetRQSuperHeroesTwo = '/SetUp/SetRQSuperHeroesTwo';
 export const SetRQSuperHeroesTwoid = '/rq-super-heroes/:heroId';

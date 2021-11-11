@@ -8,27 +8,27 @@ import { SuperHeroesDataTwo } from '../../hooks/SuperHeroesDataTwo';
 const cancelTokenSource = axios.CancelToken.source();
 export default function RQSuperHeroesTwo() {
   const onSuccess = (data) => {
-    // for (
-    //   let i = 0;
-    //   i <
-    //   ((data) => {
-    //     return data.data.map((item) => item.id);
-    //   });
-    //   i++
-    // ) {
-    //   if (
-    //     data.data.map((item) => item.id[i]) >=
-    //     data.data.map((item) => item.id[4])
-    //   ) {
-    //     console.log('Perfom side effect after data fetching', data);
-    //   } else {
-    //     cancelTokenSource.cancel();
-    //     console.log(
-    //       'Count for loop before 4, cancel',
-    //       data.data.map((item) => item.id)
-    //     );
-    //   }
-    // }
+    for (
+      let i = 0;
+      i <
+      ((data) => {
+        return data.data.map((item) => item.id);
+      });
+      i++
+    ) {
+      if (
+        data.data.map((item) => item.id[i]) >=
+        data.data.map((item) => item.id[4])
+      ) {
+        console.log('Perfom side effect after data fetching', data);
+      } else {
+        cancelTokenSource.cancel();
+        console.log(
+          'Count for loop before 4, cancel',
+          data.data.map((item) => item.id)
+        );
+      }
+    }
     console.log('Count for loop before 4, cancel', data);
   };
 
