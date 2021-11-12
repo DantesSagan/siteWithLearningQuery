@@ -94,7 +94,7 @@ export default function SetUp() {
               path={ROUTESINNTER.SetUpParallelQueries}
               component={ParallelQueries}
             />
-            <Route>
+            <Route path={ROUTESINNTER.SetUpDynamicParallelQueries}>
               <DynamicParallelPage heroIds={[1, 3]} />
             </Route>
           </Switch>
