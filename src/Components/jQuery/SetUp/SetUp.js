@@ -9,6 +9,7 @@ import * as ROUTESINNTER from '../routesInner/routes';
 import Loader from '../../fallback/loader';
 import NavBarJQuery from './NavBar.page';
 import ScrollToTop from '../../fallback/scrollTop';
+import DynamicParallelPage from '../jQuery/DynamicParallelPage.pageTen';
 
 const HomePage = lazy(() => import('../SetUp/Home.page'));
 const SuperHeroes = lazy(() => import('../SetUp/SuperHeroes.page'));
@@ -93,6 +94,9 @@ export default function SetUp() {
               path={ROUTESINNTER.SetUpParallelQueries}
               component={ParallelQueries}
             />
+            <Route path={ROUTESINNTER.SetUpDynamicParallelQueries}>
+              <DynamicParallelPage heroIds={[1, 3]} />
+            </Route>
           </Switch>
         </Suspense>
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />

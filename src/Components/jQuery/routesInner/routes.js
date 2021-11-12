@@ -12,3 +12,4 @@ export const SetUpjQueryOnSuccessOnError = '/SetUp/SetUpjQueryOnSuccessOnError';
 export const SetRQSuperHeroesTwo = '/SetUp/SetRQSuperHeroesTwo';
 export const SetRQSuperHeroesTwoid = '/rq-super-heroes/:heroId';
 export const SetUpParallelQueries = '/SetUp/ParallelQueries';
+export const SetUpDynamicParallelQueries = '/SetUp/DynamicParallelQueries';
