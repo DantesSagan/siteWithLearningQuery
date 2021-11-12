@@ -47,11 +47,7 @@ export default function ParallelQueries() {
 
   const Component = () => {
     const codeString = `
-// In this case we are using parallel queries 
-// For fetch parallel data and declaring two separated parameters
-// For better working with it 
-
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+mport { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 // import { useQuery } from 'react-query';
@@ -177,7 +173,6 @@ export default function useParallelQueriesSuperFriends(
     },
   });
 }
-
   `;
     return (
       <SyntaxHighlighter language='javascript' style={dark}>
