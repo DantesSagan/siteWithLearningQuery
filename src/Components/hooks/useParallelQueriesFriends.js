@@ -1,16 +1,33 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
-const fetchSuperHeroes = () => {
-  return axios.get('http://localhost:4000/superheroes');
+const fetchFriends = () => {
+  return axios.get('http://localhost:4000/friends');
 };
 
-export default function useParallelQueriesSuperFriends(onSuccess, onError) {
-  return useQuery('super-heroes', fetchSuperHeroes, {
+export default function useParallelQueriesSuperFriends(
+  onSuccess,
+  onError,
+  isError,
+  error,
+  isLoading,
+  isFetching
+) {
+  return useQuery('friends', fetchFriends, {
     onError,
     onSuccess,
-    select: (data) => {
-      return data.data.map((heroName) => heroName.name);
+    isError,
+    error,
+    isLoading,
+    isFetching,
+    select: (friends) => {
+      return friends.data.map((heroName) => {
+        return (
+          <ui className='p-2 list-outside' key={heroName.name}>
+            <li>{heroName.name}</li>
+          </ui>
+        );
+      });
     },
   });
 }

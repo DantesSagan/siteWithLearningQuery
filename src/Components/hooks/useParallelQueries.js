@@ -5,12 +5,29 @@ const fetchSuperHeroes = () => {
   return axios.get('http://localhost:4000/superheroes');
 };
 
-export default function useParallelQueriesSuperHeroes(onSuccess, onError) {
+export default function useParallelQueriesSuperHeroes(
+  onSuccess,
+  onError,
+  isError,
+  error,
+  isLoading,
+  isFetching
+) {
   return useQuery('super-heroes', fetchSuperHeroes, {
     onError,
     onSuccess,
-    select: (data) => {
-      return data.data.map((heroName) => heroName.name);
+    isError,
+    error,
+    isLoading,
+    isFetching,
+    select: (superHeroes) => {
+      return superHeroes.data.map((heroName) => {
+        return (
+          <ui className='p-2 list-outside' key={heroName.name}>
+            <li>{heroName.name}</li>
+          </ui>
+        );
+      });
     },
   });
 }

@@ -1,8 +1,8 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { useQuery } from 'react-query';
-import axios from 'axios';
+// import { useQuery } from 'react-query';
+// import axios from 'axios';
 import useParallelQueriesSuperHeroes from '../../hooks/useParallelQueries';
 import useParallelQueriesSuperFriends from '../../hooks/useParallelQueriesFriends';
 
@@ -26,12 +26,21 @@ export default function ParallelQueries() {
     );
   };
 
-  const { data: superHeroes } = useParallelQueriesSuperHeroes(
-    onError,
-    onSuccess
-  );
+  const {
+    data: superHeroes,
+    isError,
+    error,
+    isLoading,
+    isFetching,
+  } = useParallelQueriesSuperHeroes(onError, onSuccess);
   const { data: friends } = useParallelQueriesSuperFriends(onError, onSuccess);
 
+  if (isLoading || isFetching) {
+    return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
+  }
+  if (isError) {
+    return <h2 className='text-center text-4xl p-4'>{error.message}</h2>;
+  }
   const ScrollDown = () => {
     window.scrollTo({ top: 800, behavior: 'smooth' });
   };
@@ -109,13 +118,9 @@ export default function ParallelQueries() {
       <div className='text-center text-2xl p-8 border-4 border-blue-700 shadow-inner'>
         <h2 className='text-center text-4xl p-4'>Parallel Queries</h2>
         <h3 className='text-center text-3xl p-4 underline'>Super Heroes:</h3>
-        {superHeroes.map((heroName) => {
-          return <div key={heroName.name}>{heroName.name}</div>;
-        })}
+        {superHeroes}
         <h3 className='text-center text-3xl p-4 underline'>Friends:</h3>
-        {friends.map((friendsName) => {
-          return <div key={friendsName.name}>{friendsName.name}</div>;
-        })}
+        {friends}
       </div>
       <Component />
     </div>
