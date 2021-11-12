@@ -163,7 +163,7 @@ export default function NavBarJQuery() {
 
               <div className='button'>
                 <Link to={ROUTESINNTER.SetUpDynamicParallelQueries}>
-                  DynamicParallelQueriesss
+                  DynamicParallelQueries
                 </Link>
               </div>
 
