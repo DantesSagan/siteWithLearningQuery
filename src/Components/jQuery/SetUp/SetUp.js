@@ -10,6 +10,7 @@ import Loader from '../../fallback/loader';
 import NavBarJQuery from './NavBar.page';
 import ScrollToTop from '../../fallback/scrollTop';
 import DynamicParallelPage from '../jQuery/DynamicParallelPage.pageTenTwo';
+import QueryDependetQuery from '../jQuery/jQueryDependentQuery.pageEleven';
 
 const HomePage = lazy(() => import('../SetUp/Home.page'));
 const SuperHeroes = lazy(() => import('../SetUp/SuperHeroes.page'));
@@ -96,6 +97,12 @@ export default function SetUp() {
             />
             <Route path={ROUTESINNTER.SetUpDynamicParallelQueries}>
               <DynamicParallelPage heroIds={[1, 3]} />
+            </Route>
+            <Route path={ROUTESINNTER.SetUpDependetQuery}>
+              <QueryDependetQuery
+                email='DantesSagan@example.com'
+                channels='codevolution'
+              />
             </Route>
           </Switch>
         </Suspense>

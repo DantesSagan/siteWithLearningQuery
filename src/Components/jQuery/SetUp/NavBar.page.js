@@ -167,6 +167,11 @@ export default function NavBarJQuery() {
                 </Link>
               </div>
 
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpDependetQuery}>
+                  DependetQuery
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>

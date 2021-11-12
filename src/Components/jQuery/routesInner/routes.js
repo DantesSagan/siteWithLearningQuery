@@ -13,3 +13,4 @@ export const SetRQSuperHeroesTwo = '/SetUp/SetRQSuperHeroesTwo';
 export const SetRQSuperHeroesTwoid = '/rq-super-heroes/:heroId';
 export const SetUpParallelQueries = '/SetUp/ParallelQueries';
 export const SetUpDynamicParallelQueries = '/SetUp/DynamicParallelQueries';
+export const SetUpDependetQuery = '/SetUp/DependetQuery';
