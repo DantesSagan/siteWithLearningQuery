@@ -16,3 +16,4 @@ export const SetUpDynamicParallelQueries = '/SetUp/DynamicParallelQueries';
 export const SetUpDependetQuery = '/SetUp/DependetQuery';
 export const SetUpInitialQueryData = '/SetUp/SetUpInitialQueryData';
 export const SetRQSuperHeroesThreeid = '/rq-super-heroesThree/:heroId';
+export const SetUpPaginatedQueries = '/SetUp/PaginatedQueries';

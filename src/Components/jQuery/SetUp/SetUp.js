@@ -39,6 +39,9 @@ const ParallelQueries = lazy(() =>
 );
 const InitialQuery = lazy(() => import('../SetUp/RqSuperHeroes.pageThree'));
 const RQSuperHeroesIdThree = lazy(() => import('../jQuery/jQueryInitialData'));
+const PaginatedQuery = lazy(() =>
+  import('../jQuery/jQueryPaginatedQuery.pageTwelve')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -115,6 +118,10 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetRQSuperHeroesThreeid}
               component={RQSuperHeroesIdThree}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpPaginatedQueries}
+              component={PaginatedQuery}
             />
           </Switch>
         </Suspense>

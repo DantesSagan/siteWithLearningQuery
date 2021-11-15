@@ -23,6 +23,7 @@ module.exports = {
       animation: ['motion-safe'],
       padding: ['hover'],
       maxHeight: ['focus'],
+      opacity: ['disabled'],
     },
   },
   plugins: [],
