@@ -168,8 +168,25 @@ export default function NavBarJQuery() {
               </div>
 
               <div className='button'>
-                <Link to={ROUTESINNTER.SetUpDependetQuery}>
-                  DependetQuery
+                <Link to={ROUTESINNTER.SetUpDependetQuery}>DependetQuery</Link>
+              </div>
+            </div>
+          </button>{' '}
+        </div>
+
+        <div
+          className='col-span-4 p-2 rounded-lg'
+          style={{ display: 'inline-block' }}
+        >
+          <button
+            className='buttonM dropdown hover:border-red-600'
+            style={{ display: 'inline-block', backgroundColor: 'white' }}
+          >
+            jQueryInitialQueries
+            <div className='dropdown-content'>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpInitialQueryData}>
+                  InitialQueryData
                 </Link>
               </div>
             </div>

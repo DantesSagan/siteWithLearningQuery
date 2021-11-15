@@ -55,9 +55,9 @@ export default function QueryDependetQuery({ email, channels }) {
       return listCourses.data.map((item) => {
         return (
           // need to fix problem: 1) add space between words; 2) or just destruct in another array in objects
-          <ui className='p-4 list-outside space-y-6' key={item.courses}>
-            <li className='space-y-6'>{item.courses}</li>
-          </ui>
+          <div className='p-4 list-outside text-3xl' key={item.courses}>
+            {item.courses}
+          </div>
         );
       });
     },

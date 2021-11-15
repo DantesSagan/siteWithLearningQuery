@@ -37,6 +37,8 @@ const RQSuperHeroesId = lazy(() => import('../jQuery/RQSuperHeroes'));
 const ParallelQueries = lazy(() =>
   import('../jQuery/ParallelQueries.pageNine')
 );
+const InitialQuery = lazy(() => import('../SetUp/RqSuperHeroes.pageThree'));
+const RQSuperHeroesIdThree = lazy(() => import('../jQuery/jQueryInitialData'));
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -104,6 +106,16 @@ export default function SetUp() {
                 channels='codevolution'
               />
             </Route>
+            {/* useSuperHeroesThree */}
+            <Route
+              path={ROUTESINNTER.SetUpInitialQueryData}
+              component={InitialQuery}
+            />
+            {/* useSuperHeroesThreeId */}
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesThreeid}
+              component={RQSuperHeroesIdThree}
+            />
           </Switch>
         </Suspense>
         <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
