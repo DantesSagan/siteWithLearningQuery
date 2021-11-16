@@ -42,6 +42,9 @@ const RQSuperHeroesIdThree = lazy(() => import('../jQuery/jQueryInitialData'));
 const PaginatedQuery = lazy(() =>
   import('../jQuery/jQueryPaginatedQuery.pageTwelve')
 );
+const InfiniteQueries = lazy(() =>
+  import('../jQuery/jQueryInfiniteQueries.pageThirteen')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -119,9 +122,14 @@ export default function SetUp() {
               path={ROUTESINNTER.SetRQSuperHeroesThreeid}
               component={RQSuperHeroesIdThree}
             />
+            {/* usePaginatedQueries */}
             <Route
               path={ROUTESINNTER.SetUpPaginatedQueries}
               component={PaginatedQuery}
+            />
+            <Route
+              path={ROUTESINNTER.SetUpInfiniteQueries}
+              component={InfiniteQueries}
             />
           </Switch>
         </Suspense>

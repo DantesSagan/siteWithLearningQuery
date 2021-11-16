@@ -194,6 +194,11 @@ export default function NavBarJQuery() {
                   PaginatedQueries
                 </Link>
               </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetUpInfiniteQueries}>
+                  InfiniteQueries
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>
