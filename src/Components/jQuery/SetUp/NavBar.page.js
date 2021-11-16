@@ -199,6 +199,11 @@ export default function NavBarJQuery() {
                   InfiniteQueries
                 </Link>
               </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetRQSuperHeroesMutations}>
+                  MutationsQueries
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>

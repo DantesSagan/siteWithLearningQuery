@@ -23,7 +23,7 @@ export default function useParallelQueriesSuperHeroes(
     select: (superHeroes) => {
       return superHeroes.data.map((heroName) => {
         return (
-          <ui className='p-2 list-outside' key={heroName.name}>
+          <ui className='p-4 hover:bg-gray-500 rounded-lg' key={heroName.name}>
             <li>{heroName.name}</li>
           </ui>
         );

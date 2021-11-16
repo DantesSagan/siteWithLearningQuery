@@ -19,6 +19,16 @@
       "id": 4,
       "name": "Joker :D D:",
       "alterEgo": "Joker ;D"
+    },
+    {
+      "name": "Jamie",
+      "alterEgo": "Lannister",
+      "id": 5
+    },
+    {
+      "name": "Boiler",
+      "alterEgo": "Plate",
+      "id": 7
     }
   ],
   "friends": [
@@ -44,7 +54,11 @@
   "channels": [
     {
       "id": "codevolution",
-      "courses": [" react", " vue", " angular"]
+      "courses": [
+        " react",
+        " vue",
+        " angular"
+      ]
     }
   ],
   "colors": [

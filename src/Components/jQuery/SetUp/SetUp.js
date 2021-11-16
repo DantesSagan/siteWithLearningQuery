@@ -45,6 +45,12 @@ const PaginatedQuery = lazy(() =>
 const InfiniteQueries = lazy(() =>
   import('../jQuery/jQueryInfiniteQueries.pageThirteen')
 );
+const RQSuperHeroesMutations = lazy(() =>
+  import('../SetUp/RQSuperHeroes.pageFour')
+);
+const RQSuperHeroesMutationsFourId = lazy(() =>
+  import('../jQuery/jQueryMutations')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -130,6 +136,16 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetUpInfiniteQueries}
               component={InfiniteQueries}
+            />
+            {/* RQSuperHeroesMutations */}
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesMutations}
+              component={RQSuperHeroesMutations}
+            />
+            {/* useSuperHeroesThreeId */}
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesFourid}
+              component={RQSuperHeroesMutationsFourId}
             />
           </Switch>
         </Suspense>
