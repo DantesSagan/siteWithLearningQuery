@@ -20,3 +20,5 @@ export const SetUpPaginatedQueries = '/SetUp/PaginatedQueries';
 export const SetUpInfiniteQueries = '/SetUp/InfiniteQueries';
 export const SetRQSuperHeroesFourid = '/rq-super-heroesFour/:heroId';
 export const SetRQSuperHeroesMutations = '/SetUp/RQSuperHeroesMutations';
+export const SetRQSuperHeroesFiveid = '/rq-super-heroesFive/:heroId';
+export const SetRQSuperHeroesInvalidation = '/SetUp/RQSuperHeroesInvalidation';

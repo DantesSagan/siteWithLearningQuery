@@ -204,6 +204,11 @@ export default function NavBarJQuery() {
                   MutationsQueries
                 </Link>
               </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetRQSuperHeroesInvalidation}>
+                  InvalidationQueries
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>
