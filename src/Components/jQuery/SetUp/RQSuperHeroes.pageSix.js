@@ -291,15 +291,16 @@ export const useAddSuperHeroesMutationResponse = () => {
         with useMutation
         <br />
         Thits is example how work useMutation with React and jQuery library and
-        also with InvalidateQueries ! <br />
+        also with ResponseMutateQueries ! <br />
         What will be automatically refetch data when it added to it! <br />
         <hr className='border-2 border-red-400' />
-        Waiting for queries to become stale before they are fetched again
-        doesn't always work, especially when you know for a fact that a query's
-        data is out of date because of something the user has done. <br />
-        For that purpose, the QueryClient has an invalidateQueries method that
-        lets you intelligently mark queries as stale and potentially refetch
-        them too!
+        When dealing with mutations that update objects on the server, it's
+        common for the new object to be automatically returned in the response
+        of the mutation. <br />
+        Instead of refetching any queries for that item and wasting a network
+        call for data we already have, we can take advantage of the object
+        returned by the mutation function and update the existing query with the
+        new data immediately using the Query Client's setQueryData method!
       </h2>
       <hr className='border-2 border-red-400' />
       <h2 className='text-center text-3xl p-4'>
@@ -318,7 +319,9 @@ export const useAddSuperHeroesMutationResponse = () => {
         below how it code works!
       </h2>
       <div className='text-center text-2xl rounded-lg p-8 border-4 border-blue-700 shadow-inner '>
-        <h2 className='text-center text-4xl p-4'>RQSuperHeroesMutationsResponse</h2>
+        <h2 className='text-center text-4xl p-4'>
+          RQSuperHeroesMutationsResponse
+        </h2>
         <div>
           <input
             className='p-2 border-2 border-black m-2'
