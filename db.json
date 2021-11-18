@@ -24,6 +24,21 @@
       "name": "Jamie",
       "alterEgo": "Lannister",
       "id": 5
+    },
+    {
+      "name": "Mark",
+      "alterEgo": "Aurelious",
+      "id": 6
+    },
+    {
+      "name": "November",
+      "alterEgo": "Eighteen",
+      "id": 7
+    },
+    {
+      "name": "Everyday",
+      "alterEgo": "IsAGoodDay",
+      "id": 8
     }
   ],
   "friends": [
@@ -49,7 +64,11 @@
   "channels": [
     {
       "id": "codevolution",
-      "courses": [" react", " vue", " angular"]
+      "courses": [
+        " react",
+        " vue",
+        " angular"
+      ]
     }
   ],
   "colors": [

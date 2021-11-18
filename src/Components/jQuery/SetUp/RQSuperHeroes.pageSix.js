@@ -7,15 +7,15 @@ import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useQuery, useQueryClient } from 'react-query';
 // import axios from 'axios';
 
-import SuperHeroesDataInvalidation, {
-  useAddSuperHeroesDataInValidation,
-} from '../../hooks/useSuperHeroes.Invalidation';
+import SuperHeroesMutationResponse, {
+  useAddSuperHeroesMutationResponse,
+} from '../../hooks/useSuperHeroes.MutationsResponse';
 
 // const fetchSuperHeroesQuery = () => {
 //   return axios.get('http://localhost:4000/superheroes');
 // };
 
-export default function RQSuperHeroesMutationAndInvalidation() {
+export default function RQSuperHeroesMutationResponse() {
   const [name, setName] = useState('');
   const [alterEgo, setAlterEgo] = useState('');
   const onSuccess = () => {
@@ -28,7 +28,7 @@ export default function RQSuperHeroesMutationAndInvalidation() {
 
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     'super-heroes',
-    SuperHeroesDataInvalidation(onSuccess, onError)
+    SuperHeroesMutationResponse(onSuccess, onError)
   );
 
   const {
@@ -36,7 +36,7 @@ export default function RQSuperHeroesMutationAndInvalidation() {
     isLoading: mutationLoading,
     isError: mutationIsError,
     error: mutationError,
-  } = useAddSuperHeroesDataInValidation();
+  } = useAddSuperHeroesMutationResponse();
 
   // import useMutation and called, passing in the mutation function
   // The Invalidation function automatically recieved  any argument you pass
@@ -87,15 +87,15 @@ import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useQuery } from 'react-query';
 // import axios from 'axios';
 
-import SuperHeroesDataInvalidation, {
-  useAddSuperHeroesDataInValidation,
-} from '../../hooks/useSuperHeroes.Invalidation';
+import SuperHeroesMutationResponse, {
+  useAddSuperHeroesMutationResponse,
+} from '../../hooks/useSuperHeroes.MutationsResponse';
 
 // const fetchSuperHeroesQuery = () => {
 //   return axios.get('http://localhost:4000/superheroes');
 // };
 
-export default function RQSuperHeroesMutationAndInvalidation() {
+export default function RQSuperHeroesMutationResponse() {
   const [name, setName] = useState('');
   const [alterEgo, setAlterEgo] = useState('');
   const onSuccess = () => {
@@ -106,15 +106,17 @@ export default function RQSuperHeroesMutationAndInvalidation() {
     console.log('Perform side effect after data encountering error', error);
   };
 
-  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
+ const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     'super-heroes',
-    SuperHeroesData(onSuccess, onError)
+    SuperHeroesMutationResponse(onSuccess, onError)
   );
 
-    const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
-    'super-heroes',
-    SuperHeroesDataInvalidation(onSuccess, onError)
-  );
+  const {
+    mutate: addHero,
+    isLoading: mutationLoading,
+    isError: mutationIsError,
+    error: mutationError,
+  } = useAddSuperHeroesMutationResponse();
 
   // import useMutation and called, passing in the mutation function
   // The Invalidation function automatically recieved  any argument you pass
@@ -228,8 +230,6 @@ export default function RQSuperHeroesMutationAndInvalidation() {
   );
 }
 
-// And we need to add this export const for working Invalidation state in jQuery
-// With some IndalidateQuery
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import axios from 'axios';
 const fetchSuperHeroesQuery = () => {
@@ -240,7 +240,7 @@ const addSuperHero = (hero) => {
   return axios.post('http://localhost:4000/superheroes', hero);
 };
 
-export default function SuperHeroesDataInvalidation(onSuccess, onError) {
+export default function SuperHeroesMutationResponse(onSuccess, onError) {
   return useQuery('super-heroes', fetchSuperHeroesQuery, {
     onSuccess,
     onError,
@@ -249,19 +249,23 @@ export default function SuperHeroesDataInvalidation(onSuccess, onError) {
     },
   });
 }
-export const useAddSuperHeroesDataInValidation = () => {
-  // By invalidating the Query
-  // React Query will refetch the super-heroes query
-  // In a simple words that means:
-  // When you write to both input's values and click to button "add Hero"
-  // React Query automatically refetch data and add to db.json this value's what be written to it
+export const useAddSuperHeroesMutationResponse = () => {
+    // This is how you can handle MutationsResponse
+    // It saves you additional network request 
   const queryClient = useQueryClient();
   return useMutation(addSuperHero, {
-    onSuccess: () => {
-      queryClient.invalidateQueries('super-heroes');
+    onSuccess: (data) => {
+      //   queryClient.invalidateQueries('super-heroes');
+      queryClient.setQueryData('super-heroes', (oldQueryData) => {
+        return {
+          ...oldQueryData,
+          data: [...oldQueryData.data, data.data],
+        };
+      });
     },
   });
 };
+
 
 
   `;
@@ -279,7 +283,7 @@ export const useAddSuperHeroesDataInValidation = () => {
   return (
     <>
       <h2 className='text-center text-4xl p-4'>
-        RQSuperHeroesInvalidation( Fetching Data with useQuery)
+        RQSuperHeroesMutationsResponse( Fetching Data with useQuery)
       </h2>
       <hr className='border-2 border-red-400' />
       <h2 className='text-center text-3xl p-4'>
@@ -314,7 +318,7 @@ export const useAddSuperHeroesDataInValidation = () => {
         below how it code works!
       </h2>
       <div className='text-center text-2xl rounded-lg p-8 border-4 border-blue-700 shadow-inner '>
-        <h2 className='text-center text-4xl p-4'>RQSuperHeroesInvalidation</h2>
+        <h2 className='text-center text-4xl p-4'>RQSuperHeroesMutationsResponse</h2>
         <div>
           <input
             className='p-2 border-2 border-black m-2'

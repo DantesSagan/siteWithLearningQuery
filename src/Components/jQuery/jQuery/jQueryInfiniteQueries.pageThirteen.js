@@ -20,6 +20,7 @@ export default function QueryInfiniteQueries() {
     fetchNextPage,
     isFetching,
     isFetchingNextPage,
+    refetch,
   } = useInfiniteQuery(['colors'], fetchColors, {
     // this is how implement you infinite queries with react queries
     getNextPageParam: (_lastPage, pages) => {
@@ -198,7 +199,13 @@ export default function QueryInfiniteQueries() {
           onto an existing set of data or "infinite scroll" is also a very
           common UI pattern. React Query supports a useful version of useQuery
           called useInfiniteQuery for querying these types of lists.
-        </p>
+        </p>{' '}
+        <button
+          onClick={refetch}
+          className='p-4 text-2xl bg-blue-600 hover:bg-blue-800 rounded-2xl text-white m-2'
+        >
+          Refetch Heroes
+        </button>
         {data?.pages.map((group, i) => {
           return (
             <Fragment key={i}>
@@ -226,6 +233,7 @@ export default function QueryInfiniteQueries() {
           <span className='p-4 text-3xl mt-4'>'Fetching...'</span>
         ) : null}
       </div>
+
       <Component />
     </div>
   );

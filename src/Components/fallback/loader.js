@@ -4,7 +4,13 @@ import styled from 'styled-components';
 
 const Fallback = () => (
   <FallbackContainer>
-    <Loader type='Circles' color='#F8F0FB' height={80} width={80} timeout={3000} />
+    <Loader
+      type='ThreeDots'
+      color='#F8F0FB'
+      height={80}
+      width={80}
+      timeout={3000}
+    />
   </FallbackContainer>
 );
 

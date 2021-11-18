@@ -57,6 +57,9 @@ const RQSuperHeroesInvalidation = lazy(() =>
 const RQSuperHeroesMutationsFiveId = lazy(() =>
   import('../jQuery/jQueryInvalidation')
 );
+const RQSuperHeroesMutationResponse = lazy(() =>
+  import('../SetUp/RQSuperHeroes.pageSix')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -162,6 +165,11 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetRQSuperHeroesFiveid}
               component={RQSuperHeroesMutationsFiveId}
+            />
+            {/* RQSuperHeroesMutationsResponse */}
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesMutationResponse}
+              component={RQSuperHeroesMutationResponse}
             />
           </Switch>
         </Suspense>
