@@ -199,6 +199,19 @@ export default function NavBarJQuery() {
                   InfiniteQueries
                 </Link>
               </div>
+            </div>
+          </button>{' '}
+        </div>
+        <div
+          className='col-span-4 p-2 rounded-lg'
+          style={{ display: 'inline-block' }}
+        >
+          <button
+            className='buttonM dropdown hover:border-red-600'
+            style={{ display: 'inline-block', backgroundColor: 'white' }}
+          >
+            jQueryMutationsQueries
+            <div className='dropdown-content'>
               <div className='button'>
                 <Link to={ROUTESINNTER.SetRQSuperHeroesMutations}>
                   MutationsQueries
@@ -212,6 +225,11 @@ export default function NavBarJQuery() {
               <div className='button'>
                 <Link to={ROUTESINNTER.SetRQSuperHeroesMutationResponse}>
                   MutationReponseQueries
+                </Link>
+              </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetRQSuperHeroesOptimisticMutation}>
+                  OptimisticMutation
                 </Link>
               </div>
             </div>

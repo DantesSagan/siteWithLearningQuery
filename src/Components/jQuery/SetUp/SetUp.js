@@ -60,6 +60,9 @@ const RQSuperHeroesMutationsFiveId = lazy(() =>
 const RQSuperHeroesMutationResponse = lazy(() =>
   import('../SetUp/RQSuperHeroes.pageSix')
 );
+const RQSuperHeroesOptimisticMutation = lazy(() =>
+  import('../SetUp/RQSuperHeroes.pageSeven')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -170,6 +173,11 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetRQSuperHeroesMutationResponse}
               component={RQSuperHeroesMutationResponse}
+            />
+            {/* RQSuperHeroesOptimisticMutations */}
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesOptimisticMutation}
+              component={RQSuperHeroesOptimisticMutation}
             />
           </Switch>
         </Suspense>
