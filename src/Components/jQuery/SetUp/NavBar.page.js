@@ -232,6 +232,11 @@ export default function NavBarJQuery() {
                   OptimisticMutation
                 </Link>
               </div>
+              <div className='button'>
+                <Link to={ROUTESINNTER.SetRQSuperHeroesAxiosInterceptor}>
+                  AxiosInterceptor
+                </Link>
+              </div>
             </div>
           </button>{' '}
         </div>

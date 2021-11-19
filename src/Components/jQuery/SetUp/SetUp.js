@@ -63,6 +63,9 @@ const RQSuperHeroesMutationResponse = lazy(() =>
 const RQSuperHeroesOptimisticMutation = lazy(() =>
   import('../SetUp/RQSuperHeroes.pageSeven')
 );
+const RQSuperHeroesAxiosInterceptor = lazy(() =>
+  import('./RQSuper-heroes.pageEight')
+);
 const queryClient = new QueryClient();
 
 export default function SetUp() {
@@ -72,58 +75,73 @@ export default function SetUp() {
         <NavBarJQuery />
         <Suspense fallback={<Loader />}>
           <Switch>
+            {/* Main page */}
             <Route path={ROUTESINNTER.SetUpMain} component={HomePage} />
+            {/* SetUpSuperHeroes */}
             <Route
               path={ROUTESINNTER.SetUpSuperHeroes}
               component={SuperHeroes}
             />
+            {/* SetUpRQSuperHeroes */}
             <Route
               path={ROUTESINNTER.SetUpRQSuperHeroes}
               component={RQSuperHeroes}
             />
+            {/* SetUpHandlingReactError */}
             <Route
               path={ROUTESINNTER.SetUpHandlingReactError}
               component={HandlingReactError}
             />
+            {/* SetUpHandlingQueryError */}
             <Route
               path={ROUTESINNTER.SetUpHandlingQueryError}
               component={HandlingQueryError}
             />
+            {/* SetUpjQueryDevTools */}
             <Route
               path={ROUTESINNTER.SetUpjQueryDevTools}
               component={jQueryDevTools}
             />
+            {/* SetUpjQueryRefetchDefaults */}
             <Route
               path={ROUTESINNTER.SetUpjQueryRefetchDefaults}
               component={jQueryRefetchDefautls}
             />
+            {/* SetUpjQueryIntervalRefetch */}
             <Route
               path={ROUTESINNTER.SetUpjQueryIntervalRefetch}
               component={jQueryIntervalRefetch}
             />
+            {/* SetUpjQueryOnClick */}
             <Route
               path={ROUTESINNTER.SetUpjQueryOnClick}
               component={jQueryOnClick}
             />
+            {/* SetUpjQueryOnSuccessOnError */}
             <Route
               path={ROUTESINNTER.SetUpjQueryOnSuccessOnError}
               component={SetUpjQueryOnSuccessOnError}
             />
+            {/* RQSuperHeroesTwo */}
             <Route
               path={ROUTESINNTER.SetRQSuperHeroesTwo}
               component={RQSuperHeroesTwo}
             />
+            {/* RQSuperHeroesTwoid */}
             <Route
               path={ROUTESINNTER.SetRQSuperHeroesTwoid}
               component={RQSuperHeroesId}
             />
+            {/* SetUpParallelQuries */}
             <Route
               path={ROUTESINNTER.SetUpParallelQueries}
               component={ParallelQueries}
             />
+            {/* SetUpDynamicQuries */}
             <Route path={ROUTESINNTER.SetUpDynamicParallelQueries}>
               <DynamicParallelPage heroIds={[1, 3]} />
             </Route>
+            {/* SetUpDependetQuery */}
             <Route path={ROUTESINNTER.SetUpDependetQuery}>
               <QueryDependetQuery
                 email='DantesSagan@example.com'
@@ -178,6 +196,11 @@ export default function SetUp() {
             <Route
               path={ROUTESINNTER.SetRQSuperHeroesOptimisticMutation}
               component={RQSuperHeroesOptimisticMutation}
+            />
+            {/* RQSuperHeroesAxiosInterceptor */}
+            <Route
+              path={ROUTESINNTER.SetRQSuperHeroesAxiosInterceptor}
+              component={RQSuperHeroesAxiosInterceptor}
             />
           </Switch>
         </Suspense>

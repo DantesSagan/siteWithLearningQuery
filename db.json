@@ -44,6 +44,11 @@
       "name": "Aquaman",
       "alterEgo": "Arthur Curry",
       "id": 9
+    },
+    {
+      "name": "Hero",
+      "alterEgo": "SuperHero",
+      "id": 10
     }
   ],
   "friends": [

@@ -26,3 +26,5 @@ export const SetRQSuperHeroesMutationResponse =
   '/SetUp/RQSuperHeroesMutationResponse';
 export const SetRQSuperHeroesOptimisticMutation =
   '/SetUp/RQSuperHeroesOptimisticMutations';
+export const SetRQSuperHeroesAxiosInterceptor =
+  '/SetUp/RQSuperHeroesAxiosInterceptor';
