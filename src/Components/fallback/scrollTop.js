@@ -21,7 +21,7 @@ export default function ScrollToTop() {
           xmlns='http://www.w3.org/2000/svg'
           className='h-12 w-12 arrowScroll'
           viewBox='0 0 20 20'
-          fill='currentColor'
+          fill='beige'
           style={{
             height: '100px',
             width: '100px',
@@ -30,6 +30,8 @@ export default function ScrollToTop() {
             position: 'fixed',
             right: '100px',
             bottom: '100px',
+            stroke: 'black',
+            strokeWidth: '0.5px',
           }}
         >
           <path

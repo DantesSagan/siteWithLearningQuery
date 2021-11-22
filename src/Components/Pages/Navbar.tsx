@@ -15,7 +15,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className='p-2 rounded-lg'>
+        <div className='col-span-4 p-2 rounded-lg'>
           <div className='button bg-white text-black'>
             <Link to={ROUTES.jQuerySetUp}>jQuerySetup</Link>
           </div>
