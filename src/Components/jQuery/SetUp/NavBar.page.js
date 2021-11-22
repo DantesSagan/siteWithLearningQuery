@@ -80,7 +80,7 @@ export default function NavBarJQuery() {
             className='buttonM dropdown hover:border-red-600'
             style={{ display: 'inline-block', backgroundColor: 'white' }}
           >
-            jQueryErrorsData
+            jQueryErrors Data
             <div className='dropdown-content'>
               <div className='button'>
                 <Link to={ROUTESINNTER.SetUpHandlingReactError}>
@@ -153,8 +153,7 @@ export default function NavBarJQuery() {
             className='buttonM dropdown hover:border-red-600'
             style={{ display: 'inline-block', backgroundColor: 'white' }}
           >
-            jQueryParallel <br />
-            Queries
+            jQueryParallelQueries
             <div className='dropdown-content'>
               <div className='button'>
                 <Link to={ROUTESINNTER.SetUpParallelQueries}>
@@ -183,8 +182,7 @@ export default function NavBarJQuery() {
             className='buttonM dropdown hover:border-red-600'
             style={{ display: 'inline-block', backgroundColor: 'white' }}
           >
-            jQueryInitial <br />
-            Queries
+            jQueryInitialQueries
             <div className='dropdown-content'>
               <div className='button'>
                 <Link to={ROUTESINNTER.SetUpInitialQueryData}>
@@ -212,8 +210,7 @@ export default function NavBarJQuery() {
             className='buttonM dropdown hover:border-red-600'
             style={{ display: 'inline-block', backgroundColor: 'white' }}
           >
-            jQueryMutations <br />
-            Queries
+            jQueryMutationsQueries
             <div className='dropdown-content'>
               <div className='button'>
                 <Link to={ROUTESINNTER.SetRQSuperHeroesMutations}>
