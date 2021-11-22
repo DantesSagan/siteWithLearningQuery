@@ -23,7 +23,7 @@ export default function ScrollToTop() {
           viewBox='0 0 20 20'
           fill='beige'
           style={{
-            height: '100px',
+            height: '110px',
             width: '100px',
             cursor: 'pointer',
             padding: '5px',
