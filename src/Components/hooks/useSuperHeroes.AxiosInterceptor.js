@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import RequestFN from '../utils/axios-utils';
+import axios from 'axios';
 
 const fetchSuperHeroesQuery = () => {
   //   return axios.get('http://localhost:4000/superheroes');
@@ -11,6 +12,25 @@ const addSuperHero = (hero) => {
   return RequestFN({ url: '/superheroes', method: 'post', data: hero });
 };
 
+const deleteSuperHero = (hero) => {
+  //   return axios.post('http://localhost:4000/superheroes', hero);
+  return RequestFN({ url: '/superheroes', method: 'delete', data: hero });
+};
+function handleRemovalHeroClick(hero) {
+  axios
+    .delete(`http://localhost:4000/superheroes/`, { data: hero })
+    .then((res, error) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(hero);
+      }
+      if (res.data != null) {
+        alert('Deleted success!');
+      }
+    });
+  console.log(hero);
+}
 export default function SuperHeroesAxiosInterceptor(onSuccess, onError) {
   return useQuery('super-heroes', fetchSuperHeroesQuery, {
     onSuccess,
@@ -53,8 +73,15 @@ export const useAddSuperHeroesAxiosInterceptor = () => {
     onError: (_error, _hero, context) => {
       queryClient.getQueryData('super-heroes', context.prevHeroData);
     },
-    onSettled: () => {
+    onSettled: (error) => {
       queryClient.invalidateQueries('super-heroes');
+      if (error) {
+        console.log(error);
+      }
     },
   });
+};
+
+export const useDeleteSuperHeroesAxiosInterceptor = () => {
+  return useQuery('super-heroes', handleRemovalHeroClick);
 };

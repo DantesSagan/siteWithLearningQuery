@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 
 import SuperHeroesAxiosInterceptor, {
   useAddSuperHeroesAxiosInterceptor,
+  useDeleteSuperHeroesAxiosInterceptor,
 } from '../../hooks/useSuperHeroes.AxiosInterceptor';
-
-// const fetchSuperHeroesQuery = () => {
-//   return axios.get('http://localhost:4000/superheroes');
-// };
 
 export default function RQSuperHeroesAxiosInterceptor() {
   const [name, setName] = useState('');
@@ -37,6 +34,8 @@ export default function RQSuperHeroesAxiosInterceptor() {
     error: mutationError,
   } = useAddSuperHeroesAxiosInterceptor();
 
+  const deleteName = useDeleteSuperHeroesAxiosInterceptor();
+
   // import useMutation and called, passing in the mutation function
   // The Invalidation function automatically recieved  any argument you pass
   // When you invoke the mutate function in the component
@@ -48,15 +47,11 @@ export default function RQSuperHeroesAxiosInterceptor() {
     const hero = { name, alterEgo };
     addHero(hero);
   };
+  function handleRemovalHeroClick() {
+    const hero = { name, alterEgo };
+    deleteName();
+  }
 
-  const queryClient = useQueryClient();
-  const handleRemovalHeroClick = (hero) => {
-    console.log({ name, alterEgo });
-    const removeHero = queryClient.removeQueries(
-      <Link to={`/rq-super-heroesFour/${hero.id}`} />
-    );
-    addHero(removeHero);
-  };
   if (isLoading) {
     return <h2 className='text-center text-4xl p-4'>Loading...</h2>;
   }
@@ -427,9 +422,7 @@ export default function RequestFN({ ...options }) {
         {data?.data.map((hero) => {
           return (
             <div key={hero.id} className='p-4 hover:bg-gray-500 rounded-lg'>
-              {/* <button key={hero.id} onClick={handleRemovalHeroClick}>
-                Remove Hero
-              </button> */}
+              <button onClick={handleRemovalHeroClick}>Remove Hero</button>
               <Link to={`/rq-super-heroesFour/${hero.id}`}>{hero.name}</Link>
             </div>
           );
